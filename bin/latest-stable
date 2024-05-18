@@ -8,7 +8,7 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 # shellcheck source=./lib/utils.bash
 . "${plugin_dir}/lib/utils.bash"
 
-list_all_versions | sort_versions | tail -r | while read -r line; do
+list_all_versions | sort_versions | awk '{a[i++]=$0} END {for (j=i-1; j>=0; j--) print a[j]}' | while read -r line; do
 	if [[ ! $line =~ -(alpha|beta|rc) ]]; then
 		version="$line"
 		printf "%s\n" "$version"
