@@ -20,7 +20,7 @@ sort_versions() {
 
 list_all_versions() {
 	local url xml_data versions
-	url="$MAVEN_REPO/aapt2/group-index.xml"
+	url="$MAVEN_REPO/group-index.xml"
 	xml_data=$(curl -s "$url")
 	versions=$(echo "$xml_data" | xmllint --xpath '//aapt2/@versions' - | sed 's/versions=//' | sed 's/"//g' | sed 's/,/\n/g')
 	echo "$versions"
