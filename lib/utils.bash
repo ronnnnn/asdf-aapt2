@@ -4,7 +4,7 @@ set -euo pipefail
 
 MAVEN_REPO="https://dl.google.com/android/maven2/com/android/tools/build"
 TOOL_NAME="aapt2"
-TOOL_TEST="aapt2 --help"
+TOOL_TEST="aapt2 version"
 
 fail() {
 	echo -e "asdf-$TOOL_NAME: $*"
@@ -22,7 +22,7 @@ list_all_versions() {
 	local url xml_data versions
 	url="$MAVEN_REPO/group-index.xml"
 	xml_data=$(curl -s "$url")
-	versions=$(echo "$xml_data" | xmllint --xpath '//aapt2/@versions' - | sed 's/versions=//' | sed 's/"//g' | sed 's/,/\n/g')
+	versions=$(echo "$xml_data" | grep -o '<aapt2 versions="[^"]*"' | sed 's/<aapt2 versions="//' | sed 's/"//g' | sed 's/,/\n/g')
 	echo "$versions"
 }
 
@@ -46,7 +46,7 @@ download_release() {
 	filename="$2"
 
 	os_name=$(extract_os)
-	url="$MAVEN_REPO/$TOOL_NAME/$version/$TOOL_NAME-$os_name.jar"
+	url="$MAVEN_REPO/$TOOL_NAME/$version/$TOOL_NAME-$version-$os_name.jar"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
