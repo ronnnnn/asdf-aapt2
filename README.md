@@ -2,7 +2,7 @@
 
 # asdf-aapt2 [![Build](https://github.com/ronnnnn/asdf-aapt2/actions/workflows/build.yml/badge.svg)](https://github.com/ronnnnn/asdf-aapt2/actions/workflows/build.yml) [![Lint](https://github.com/ronnnnn/asdf-aapt2/actions/workflows/lint.yml/badge.svg)](https://github.com/ronnnnn/asdf-aapt2/actions/workflows/lint.yml)
 
-[aapt2](https://developer.android.com/tools/aapt2) plugin for the [asdf version manager](https://asdf-vm.com).
+[AAPT2 (Android Asset Packaging Tool)](https://developer.android.com/tools/aapt2) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 
