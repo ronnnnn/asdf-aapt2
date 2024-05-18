@@ -40,7 +40,7 @@ asdf install aapt2 latest
 asdf global aapt2 latest
 
 # Now aapt2 commands are available
-aapt2 --help
+aapt2 version
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to

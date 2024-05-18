@@ -4,7 +4,7 @@ set -euo pipefail
 
 MAVEN_REPO="https://dl.google.com/android/maven2/com/android/tools/build"
 TOOL_NAME="aapt2"
-TOOL_TEST="aapt2 --help"
+TOOL_TEST="aapt2 version"
 
 fail() {
 	echo -e "asdf-$TOOL_NAME: $*"
@@ -46,7 +46,7 @@ download_release() {
 	filename="$2"
 
 	os_name=$(extract_os)
-	url="$MAVEN_REPO/$TOOL_NAME/$version/$TOOL_NAME-$os_name.jar"
+	url="$MAVEN_REPO/$TOOL_NAME/$version/$TOOL_NAME-$version-$os_name.jar"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
