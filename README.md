@@ -15,7 +15,8 @@
 
 # Dependencies
 
-No dependencies are needed.
+- `bash`, `curl`, `tar`, and [POSIX utilities](https://pubs.opengroup.org/onlinepubs/9699919799/idx/utilities.html).
+- No more dependencies are needed.
 
 # Install
 
